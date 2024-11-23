@@ -101,7 +101,7 @@ class VideoPlayer(CMSPlugin, CMSPluginOverridenPTR, TranslatablePluginModel):
     )
 
     def __str__(self):
-        if self.has_translation():
+        if self.has_translation_or_fallback():
             if self.label:
                 return self.label
             elif self.embed_link:

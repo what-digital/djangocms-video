@@ -36,3 +36,11 @@ class TranslatablePluginModel(TranslatableModel):
                 translation.pk = None
                 translation.master = self
                 translation.save()
+
+    def has_translation_or_fallback(self):
+        if self.has_translation():
+            return True
+        for language in self.get_fallback_languages():
+            if self.has_translation(language_code=language):
+                return True
+        return False
