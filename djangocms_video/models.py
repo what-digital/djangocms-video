@@ -167,11 +167,6 @@ class VideoSource(CMSPlugin):
             return self.source_file.label
         return gettext('<file is missing>')
 
-    def copy_relations(self, oldinstance):
-        # Because we have a ForeignKey, it's required to copy over
-        # the reference from the instance to the new plugin.
-        self.source_file = oldinstance.source_file
-
 
 class VideoTrack(CMSPlugin):
     """
