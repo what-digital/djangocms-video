@@ -124,6 +124,9 @@ class VideoPlayer(CMSPlugin, CMSPluginOverridenPTR, TranslatablePluginModel):
         url_parts[4] = urlencode(query)
         return urlunparse(url_parts)
 
+    def copy_relations(self, old_instance):
+        TranslatablePluginModel.copy_relations(self, old_instance)
+
 
 class VideoSource(CMSPlugin):
     """
